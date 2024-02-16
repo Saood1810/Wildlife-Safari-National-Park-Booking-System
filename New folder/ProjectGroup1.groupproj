@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{1D5F838C-8434-494B-B747-6B7D759BF8C9}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\Wildlifesafari_p.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\..\..\Documents\RAD Studio\7.0\Imports\pkg_windowsmediaplayer.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Wildlifesafari_p">
+			<MSBuild Projects="..\Wildlifesafari_p.dproj"/>
+		</Target>
+		<Target Name="Wildlifesafari_p:Clean">
+			<MSBuild Targets="Clean" Projects="..\Wildlifesafari_p.dproj"/>
+		</Target>
+		<Target Name="Wildlifesafari_p:Make">
+			<MSBuild Targets="Make" Projects="..\Wildlifesafari_p.dproj"/>
+		</Target>
+		<Target Name="pkg_windowsmediaplayer">
+			<MSBuild Projects="..\..\..\..\..\Documents\RAD Studio\7.0\Imports\pkg_windowsmediaplayer.dproj"/>
+		</Target>
+		<Target Name="pkg_windowsmediaplayer:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\..\..\..\Documents\RAD Studio\7.0\Imports\pkg_windowsmediaplayer.dproj"/>
+		</Target>
+		<Target Name="pkg_windowsmediaplayer:Make">
+			<MSBuild Targets="Make" Projects="..\..\..\..\..\Documents\RAD Studio\7.0\Imports\pkg_windowsmediaplayer.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Wildlifesafari_p;pkg_windowsmediaplayer"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Wildlifesafari_p:Clean;pkg_windowsmediaplayer:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Wildlifesafari_p:Make;pkg_windowsmediaplayer:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
